@@ -1,0 +1,41 @@
+<div class="watchlist">
+  <header>
+    <h1>Mi Watchlist</h1>
+    <a routerLink="/dashboard">&larr; Volver al dashboard</a>
+  </header>
+
+  <form (ngSubmit)="addCoin()" class="add-form">
+    <input
+      type="text"
+      placeholder="id de la moneda (ej: bitcoin)"
+      [(ngModel)]="newCoinId"
+      name="newCoinId"
+      required
+    />
+    <input
+      type="number"
+      placeholder="Alerta de precio (opcional)"
+      [(ngModel)]="newAlertPrice"
+      name="newAlertPrice"
+    />
+    <button type="submit">Agregar</button>
+  </form>
+
+  @if (loading()) {
+    <p>Cargando...</p>
+  } @else if (items().length === 0) {
+    <p>Todavía no tienes monedas en tu watchlist.</p>
+  } @else {
+    <ul>
+      @for (item of items(); track item.id) {
+        <li>
+          <span>{{ item.coin_id }}</span>
+          @if (item.alert_price) {
+            <span class="alert">Alerta: {{ item.alert_price | currency }}</span>
+          }
+          <button (click)="remove(item.id)">Quitar</button>
+        </li>
+      }
+    </ul>
+  }
+</div>

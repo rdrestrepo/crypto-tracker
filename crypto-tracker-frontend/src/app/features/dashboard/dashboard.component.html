@@ -1,0 +1,42 @@
+<div class="dashboard">
+  <header>
+    <h1>Crypto Tracker</h1>
+    <nav>
+      <a routerLink="/watchlist">Mi Watchlist</a>
+      <button (click)="logout()">Cerrar sesión</button>
+    </nav>
+  </header>
+
+  @if (loading()) {
+    <p>Cargando precios...</p>
+  } @else {
+    @if (lastUpdated()) {
+      <p class="updated-at">Actualizado: {{ lastUpdated() | date: 'HH:mm:ss' }}</p>
+    }
+
+    <table>
+      <thead>
+        <tr>
+          <th>Moneda</th>
+          <th>Precio (USD)</th>
+          <th>Cambio 24h</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (coin of coins(); track coin.id) {
+          <tr>
+            <td>
+              <img [src]="coin.image" [alt]="coin.name" width="24" height="24" />
+              {{ coin.name }} ({{ coin.symbol | uppercase }})
+            </td>
+            <td>{{ coin.current_price | currency }}</td>
+            <td [class.positive]="coin.price_change_percentage_24h > 0"
+                [class.negative]="coin.price_change_percentage_24h < 0">
+              {{ coin.price_change_percentage_24h | number: '1.2-2' }}%
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>
