@@ -8,7 +8,6 @@ from app.db.session import engine
 
 app = FastAPI(title=settings.PROJECT_NAME)
 
-# Crea las tablas si no existen (seguro correr esto en cada arranque)
 Base.metadata.create_all(bind=engine)
 
 app.add_middleware(
@@ -24,10 +23,4 @@ app.include_router(api_router, prefix="/api/v1")
 
 @app.get("/")
 def root():
-    inspector = inspect(engine)
-    return {
-        "status": "ok",
-        "docs": "/docs",
-        "metadata_tables": list(Base.metadata.tables.keys()),
-        "db_tables": inspector.get_table_names(),
-    }
+    return {"status": "ok", "docs": "/docs"}
