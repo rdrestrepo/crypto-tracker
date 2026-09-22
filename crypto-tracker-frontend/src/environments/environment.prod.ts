@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://TU-BACKEND-DESPLEGADO.com/api/v1'
+  apiUrl: 'https://crypto-tracker-api-lbw5.onrender.com/api/v1'
 };
