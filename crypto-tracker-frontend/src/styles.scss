@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+.auth-container {
+  max-width: 380px;
+  margin: 80px auto;
+  padding: 32px;
+  background: #1e293b;
+  border-radius: 12px;
+
+  h2 { margin-top: 0; }
+
+  label {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 14px;
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #6366f1;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:disabled { opacity: 0.6; cursor: not-allowed; }
+  }
+
+  .error { color: #f87171; font-size: 13px; }
+  a { color: #818cf8; }
+}
+
+.dashboard, .watchlist {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 24px;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+
+    nav { display: flex; gap: 16px; align-items: center; }
+    a { color: #818cf8; text-decoration: none; }
+    button {
+      background: #334155;
+      color: #e2e8f0;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th, td {
+      text-align: left;
+      padding: 12px;
+      border-bottom: 1px solid #334155;
+    }
+
+    img { vertical-align: middle; margin-right: 8px; }
+  }
+
+  .positive { color: #4ade80; }
+  .negative { color: #f87171; }
+  .updated-at { font-size: 12px; color: #94a3b8; }
+}
+
+.add-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+
+  input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: #e2e8f0;
+  }
+
+  button {
+    padding: 8px 16px;
+    background: #6366f1;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.watchlist ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #1e293b;
+    border-radius: 8px;
+    margin-bottom: 8px;
+
+    .alert { font-size: 13px; color: #94a3b8; }
+    button {
+      background: transparent;
+      color: #f87171;
+      border: 1px solid #f87171;
+      padding: 4px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+}
