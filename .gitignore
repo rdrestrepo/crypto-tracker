@@ -1,2 +1,16 @@
+﻿# Backend
+crypto-tracker-backend/venv/
+crypto-tracker-backend/__pycache__/
+crypto-tracker-backend/**/__pycache__/
 crypto-tracker-backend/.env
 crypto-tracker-backend/*.db
+crypto-tracker-backend/alembic/versions/__pycache__/
+
+# Frontend
+crypto-tracker-frontend/node_modules/
+crypto-tracker-frontend/dist/
+crypto-tracker-frontend/.angular/
+
+# Generales
+.vscode/
+*.log
